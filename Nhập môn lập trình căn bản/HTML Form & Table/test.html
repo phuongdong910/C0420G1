@@ -4,42 +4,22 @@
     <meta charset="UTF-8">
     <title>test</title>
     <style>
-        p.nowrap {
-            white-space: nowrap;
-        }
-        p.pre {
-            white-space: pre;
-        }
-        p.preline {
-            white-space: pre-line;
-        }
-        p.prewrap {
-            white-space: pre-wrap;
+        .city {
+        text-align:center;
         }
     </style>
 </head>
 <body>
-<div class="card p-1" style="width: 200px">
-    <p class="nowrap">
-        Ví dụ white-space sự dùng            để điều khiển
-        khoảng trắng trong văn bản
-    </p>
-
-    <p class="pre">
-        Ví dụ white-space sự dùng           để điều khiển
-        khoảng trắng trong văn bản
-    </p>
-    <p class="preline">
-        Ví dụ white-space sự dùng           để điều khiển
-        khoảng trắng trong văn bản
-    </p>
-    <p class="prewrap">
-        Ví dụ white-space sự dùng           để điều khiển
-        khoảng trắng trong văn bản
-    </p>
-</div>
-
-
-
+<label style="color: blue;font-size: 20px">Email</label>
+<input type="email" name="email"><br><br>
+<label style="color: blue;font-size: 20px;text-align: center;" >Sở thích</label>
+<input type="checkbox" id="hobby" name="hobby" value="sport">
+<label style="color: red; font-size: 18px">Thể thao</label>
+<input type="checkbox" name="music" value="Music">
+<label style="color: red; font-size: 18px">Âm nhạc</label>
+<input type="checkbox" name="read book" value="read book">
+<label style="color: red; font-size: 18px">Đọc sách</label><br>
+<input type="checkbox" id="hobby" name="hobby" value="web">
+<label class="city">Lướt web</label>
 </body>
 </html>
