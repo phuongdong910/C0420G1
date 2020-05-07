@@ -2,24 +2,21 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>test</title>
-    <style>
-        .city {
-        text-align:center;
-        }
-    </style>
+    <title>Giao diên form đăng kí người dùng</title>
+
 </head>
 <body>
-<label style="color: blue;font-size: 20px">Email</label>
-<input type="email" name="email"><br><br>
-<label style="color: blue;font-size: 20px;text-align: center;" >Sở thích</label>
-<input type="checkbox" id="hobby" name="hobby" value="sport">
-<label style="color: red; font-size: 18px">Thể thao</label>
-<input type="checkbox" name="music" value="Music">
-<label style="color: red; font-size: 18px">Âm nhạc</label>
-<input type="checkbox" name="read book" value="read book">
-<label style="color: red; font-size: 18px">Đọc sách</label><br>
-<input type="checkbox" id="hobby" name="hobby" value="web">
-<label class="city">Lướt web</label>
+<form action="http://demo.codegym.vn/6/registration_form/register.php" method="post">
+    <p><strong>Họ và tên</strong></p>
+    <input name="name" type="text"/>
+    <p><strong>Email</strong></p>
+    <input name="email" type="text"/>
+    <p><strong>Số điện thoại</strong></p>
+    <input name="phone" type="text"/>
+    <p><strong>Giới tính</strong></p>
+    <label><input name="sex" value="Nam" type="radio" checked/>Nam</label>
+    <label><input name="sex" value="Nữ" type="radio"/>Nữ</label><br/><br/>
+    <input name="submit" value="Đăng kí" type="submit"/>
+</form>
 </body>
 </html>

@@ -12,7 +12,7 @@
 </head>
 <body>
 <div style="background-color: #fdffa1; padding: 5px">
-    <form>
+    <form >
         <h1 style="background-color:#aae7ff ">ĐĂNG KÍ HỌC VIÊN</h1>
         <label class="city">Họ và tên</label>
         <input style="margin-left: 30px" type="text" name="your name">
@@ -26,15 +26,24 @@
         <input style="margin-left: 20px" type="radio" name="gender" value="Female">
         <label style="font-size: 23px">Nữ</label><br><br>
         <label class="city">Địa chỉ</label>
-        
-        <textarea style="margin-top: 30px;margin-left: 50px" name="adress" rows="5" cols="20"></textarea><br><br>
-        <label class="city" style="margin-right: 75px"> Lớp</label>
-        <select name="class" value="-Chọnlớp-" style=font-size: 20px;>
-            <option value="C04">C0420G1</option>
-            <option value="C03" sele>C0320G1</option
-            <option value="C02">C0220G1</option>
+        <input type="text" name="adress" style="width: 200px; height: 100px">
+         <br><br>
+        <label class="city" style="margin-right: 75px"> Lớp</label><select  name="hall"  style="font-size: 20px; ">
+            <option value="" selected>-Tùy chọn-</option>
+            <option name="class"value="C04">C0420G1</option>
+            <option name="class" value="C03">C0320G1</option>
+            <option name=class value="C02">C0220G1</option>
         </select><br>
         <label class="city">Email</label>
         <input style="margin-left: 60px;margin-top: 30px" type="email" name="email"><br><br>
         <label class="city">Điện thoại</label>
-        <input style="margin-left: 24px" type="number" name="phone">
+        <input style="margin-left: 24px" type="number" name="phone"><br><br>
+        <input style="margin-left: 112px" type="submit" name="submit" value="Đăng Kí">
+        <input type="reset" name="reset" value="Nhập lại">
+
+
+    </form>
+</div>
+</body>
+
+</html>
