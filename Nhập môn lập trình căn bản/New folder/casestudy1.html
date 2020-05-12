@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>FuramaResort</title>
+    <script src="casestudyjs.js"></script>
+</head>
+<body onload="init()">
+<div id="regInfo">
+    <h1>- Villa 500$/ 1 ngày</h1>
+    <h1>- House 300$/1 ngày</h1>
+    <h1>- Room: 100$/1 ngày</h1>
+</div>
+<table id="regTable">
+    <tr>
+        <td>
+            <b>Nhập tên của bạn:</b>
+        </td>
+        <td>
+            <input id="name1" type="text">
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <b>Nhập CMND của bạn:</b>
+        </td>
+        <td>
+            <input id="cmnd" type="text">
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <b>Ngày tháng năm Sinh(Year-Month-Day):</b>
+        </td>
+        <td>
+            <input id="birthday" type="text">
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <b>Địa Chỉ Email:</b>
+        </td>
+        <td>
+            <input id="yourEmail" type="text">
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <b>Địa Chỉ Nhà Bạn:</b>
+        </td>
+        <td>
+            <select id="yourAddress">
+                <option value="DaNang">
+                    DaNang
+                </option>
+                <option value="Hue">
+                    Hue
+                </option>
+                <option value="QuangNam">
+                    QuangNam
+                </option>
+            </select>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <b>Thẻ Thành Viên:</b>
+        </td>
+        <td>
+            <select id="customerService">
+                <option value="Diamond">
+                    Diamond
+                </option>
+                <option value="Platinum">
+                    Platinum
+                </option>
+                <option value="Gold">
+                    Gold
+                </option>
+                <option value="Silver">
+                    Silver
+                </option>
+                <option value="Member">
+                    Member
+                </option>
+            </select>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <b>Giảm giá:</b>
+        </td>
+        <td>
+            <select id="bargain">
+                <option value="0.1">
+                    Giảm 10%
+                </option>
+                <option value="0.15">
+                    Giảm 15%
+                </option>
+                <option value="0.2">
+                    Giảm 20%
+                </option>
+                <option value="0.25">
+                    Giảm 25%
+                </option>
+                <option value="0.3">
+                    Giảm 30%
+                </option>
+            </select>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <b>Số người đi kèm:</b>
+        </td>
+        <td>
+            <input id="people" type="text">
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <b>Số ngày thuê:</b>
+        </td>
+        <td>
+            <input id="rentDay" type="text">
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <b>Loại phòng:</b>
+        </td>
+        <td>
+            <select id="roomSelect">
+                <option value="Villa">
+                    Villa
+                </option>
+                <option value="House">
+                    House
+                </option>
+                <option value="Room">
+                    Room
+                </option>
+            </select>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <b>Chất Lượng Phòng:</b>
+        </td>
+        <td>
+            <select id="roomChoice">
+                <option value="Vip">
+                    Vip
+                </option>
+                <option value="Business">
+                    Business
+                </option>
+                <option value="Normal">
+                    Normal
+                </option>
+            </select>
+        </td>
+    </tr>
+</table>
+
+<table id="regButton">
+    <tr>
+        <td>
+            <input type="button" value="Đăng Ký" onclick="Calculation()">
+        </td>
+        <td>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <input type="button" value="1.Hiển thị thông tin khách hàng" onclick="ShowInfo()">
+        </td>
+        <td>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <input type="button" value="2.Chỉnh sửa thông tin khách hàng" onclick="EditInfo()">
+        </td>
+        <td>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <input type="button" value="3.Số tiền phải trả" onclick="Payment()">
+        </td>
+        <td>
+        </td>
+    </tr>
+</table>
+<table id="result">
+
+</table>
+
+</body>
+</html>

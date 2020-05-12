@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Tính chỉ số cân nặng</title>
+    <style>
+
+
+
+    </style>
+</head>
+<body>
+<b><label>Cân nặng</label></b> <input type="text" id="weight"><br><br>
+<b><label>Chiều cao</label></b> <input type="text" id="height"><br><br>
+<button onclick="caculator()"> caculator</button><br>
+
+
+<script>
+    function caculator(){
+        let a = document.getElementById("weight").value*1;
+        let b = document.getElementById("height").value*1;
+        let bmi = a/(b*b);
+
+        if (bmi < 18)
+            document.write("Underweight");
+        else if (bmi < 25.0)
+            document.write("Normal");
+        else if (bmi < 30.0)
+            document.write("Overweight");
+        else
+            document.write("Obese");
+    }
+
+
+</script>
+</body>
+</html>

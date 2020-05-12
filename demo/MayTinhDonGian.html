@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<table>
+    <tr>
+        <td colspan="4"><p id="text"></p></td>
+    </tr>
+    <tr>
+        <td onclick="nhap('1')">1</td>
+        <td onclick="nhap('2')">2</td>
+        <td onclick="nhap('3')">3</td>
+        <td onclick="nhap('+')">+</td>
+    </tr>
+    <tr>
+        <td onclick="nhap('4')">4</td>
+        <td onclick="nhap('5')">5</td>
+        <td onclick="nhap('6')">6</td>
+        <td onclick="nhap('-')">-</td>
+    </tr>
+    <tr>
+        <td onclick="nhap('7')">7</td>
+        <td onclick="nhap('8')">8</td>
+        <td onclick="nhap('9')">9</td>
+        <td onclick="nhap('*')">*</td>
+    </tr>
+    <tr>
+        <td onclick="nhap('C')">C</td>
+        <td onclick="nhap('0')">0</td>
+        <td onclick="tinhToan()">=</td>
+        <td onclick="nhap('/')">/</td>
+    </tr>
+</table>
+<script>
+    function nhap(character) {
+            let text = document.getElementById("text").textContent;
+            document.getElementById("text").innerHTML = text + character;
+    }
+    function tinhToan() {
+        let result = eval(document.getElementById("text").textContent);
+        document.getElementById("text").innerText=result;
+    }
+
+</script>
+</body>
+</html>

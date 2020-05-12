@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bài tập ứng dụng máy tính</title>
+    <style>
+        html {
+            font-size: 62.5%;
+            box-sizing: border-box;
+        }
+
+        *, *::before, *::after {
+            margin: 0;
+            padding: 0;
+            box-sizing: inherit;
+        }
+
+        .calculator {
+            border: 1px solid #ccc ;
+            border-radius: 5px;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 400px;
+            padding: 5px;
+        }
+
+        .calculator-screen {
+            width: 100%;
+            font-size: 5rem;
+            height: 80px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+
+            background-color: white;
+
+            color: blue;
+            text-align: right;
+            padding-right: 20px;
+            padding-left: 10px;
+        }
+
+        button {
+            height: 60px;
+            background-color: #fff;
+            border-radius: 3px;
+            border: 1px solid #c4c4c4;
+            background-color: transparent;
+            font-size: 2rem;
+            color: #333;
+
+        }
+
+        button:hover {
+            background-color: #eaeaea;
+        }
+
+        .key {
+            color: #337cac;
+            font-size: 25px;
+        }
+
+        .all-clear {
+            background-color: #f0595f;
+            border-color: #b0353a;
+            color: #fff;
+        }
+
+        .all-clear:hover {
+            background-color: #f17377;
+        }
+
+        .equal-sign {
+            background-color: #2e86c0;
+            border-color: #337cac;
+            color: #fff;
+
+        }
+
+        .equal-sign:hover {
+            background-color: #4e9ed4;
+        }
+
+        .calculator-keys {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            grid-gap: 20px;
+            padding: 20px;
+        }
+    </style>
+</head>
+<body>
+<div class="calculator">
+
+    <input type="text" class="calculator-screen" value="" disabled />
+
+    <div class="calculator-keys">
+
+        <button type="button" class="key" value="1">1</button>
+        <button type="button" class="key" value="2">2</button>
+        <button type="button" class="key" value="3">3</button>
+        <button type="button" class="operator key" value="+">+</button>
+
+        <button type="button" class="key" value="4">4</button>
+        <button type="button" class="key" value="5">5</button>
+        <button type="button" class="key" value="6">6</button>
+        <button type="button" class="operator key" value="-">-</button>
+
+
+
+        <button type="button" class="key" value="7">7</button>
+        <button type="button" class="key" value="8">8</button>
+        <button type="button" class="key" value="9">9</button>
+        <button type="button" class="operator key" value="*">&times;</button>
+
+
+
+        <button type="button" class="all-clear" value="all-clear">C</button>
+        <button type="button" class="key" value="0">0</button>
+        <button type="button" class="equal-sign key" value="=">=</button>
+        <button type="button" class="operator key" value="/">&divide;</button>
+
+
+    </div>
+</div>
+<script src="baitap_ca"></script>
+</body>
+</html>
