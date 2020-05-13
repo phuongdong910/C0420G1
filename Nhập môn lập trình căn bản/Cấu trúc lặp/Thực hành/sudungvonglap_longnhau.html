@@ -5,22 +5,17 @@
     <title>Sử dụng vòng lặp lồng nhau</title>
 </head>
 <body>
-<script language="javascript">
-    let sout, i, j;
+<script>
+    let sout;
     sout = "<table border='1' width='300' cellspacing='0' cellpadding='3'>";
-    i =  1; j = 2;
-    while (i <10) {
+    for (i = 1; i < 10; i++) {
         sout = sout + "<tr>";
-        while (j < 10) {
+        for (j = 2; j < 10; j++) {
             sout = sout + "<td>" + j  + 'x' + i + '=' + i * j  + "</td>";
-            j++;
         }
         sout = sout + "</tr>";
-        j = 2;
-        i++;
     }
     sout = sout + "</table>";
     document.write(sout);
 </script>
-</body>
 </html>
