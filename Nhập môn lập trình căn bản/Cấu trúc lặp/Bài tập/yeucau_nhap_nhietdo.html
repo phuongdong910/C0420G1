@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Yêu cầu nhập nhiệt độ</title>
+</head>
+<body>
+<script>
+    let tem = parseInt(prompt(" Nhập nhiệt độ hiện tại "));
+    while( tem < 20 || tem>100) {
+        if (tem < 20) {
+            alert("Cần tăng nhiệt độ");
+        }
+        if (tem > 100) {
+            alert("Cần giảm nhiệt độ");
+        }
+        tem = parseInt(prompt(" Mời nhập lại nhiệt độ"))
+    }
+    alert( " Nhiệt độ là " +tem);
+
+
+
+
+
+
+
+
+
+
+
+
+</script>
+</body>
+</html>

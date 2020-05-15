@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Demo mang</title>
+</head>
+<body>
+<p id="demo"></p>
+
+<script>
+    var matrix = new Array(10, 10);
+    var total = 0;
+    for (var row = 0; row < matrix.length; row++) {
+        for (var column = 0; column < matrix[row].length; column++) {
+            total += matrix[row][column];
+        }
+    }
+    document.write(+total);
+</script>
+</body>
+</html>
