@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Tự Điển</title>
+</head>
+<body>
+<input type="text" id="nhap"><br>
+<button id="tim" onclick="search()">Search</button>
+<p id="result"></p>
+
+<script>
+    let eng = ["Read","Speak","Eat","Red","Blue","White","Black","Light"];
+    let vie = ["Đọc","Phát âm","Ăn","Màu đỏ","Màu xanh","Màu trắng","Màu đen","Đèn"];
+
+    let b;
+    function search() {
+        let a = document.getElementById("nhap").value;
+        for(let i = 0; i<eng.length; i++){
+            if(a==eng[i]){
+                b=vie[i];
+                break;
+            } else b="Không tìm thấy";
+        }
+        document.getElementById("result").innerHTML = b;
+    }
+
+</script>
+</body>
+</html>
