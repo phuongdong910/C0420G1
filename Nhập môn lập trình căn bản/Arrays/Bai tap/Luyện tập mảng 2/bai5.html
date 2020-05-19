@@ -1,0 +1,41 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+<label for="txt">String 1</label>
+<input type="text" id="txt">
+<label for="txt">String 2</label>
+<input type="text" id="txt2">
+<button onclick="compare()">Compare</button><br>
+<p id="id"></p>
+<script>
+    let str = document.getElementById('txt');
+    let str2 = document.getElementById('txt2');
+    function compare() {
+        let wordSp = str.value.split(" ");
+        let wordSp2 = str2.value.split(" ");
+        let isSimilar = true;
+        // let filArr = wordSp.filter(function(value) { return value != ""});
+        if (wordSp.length == wordSp2.length) {
+            for(let i = 0; i < wordSp.length; i++) {
+                if (wordSp[i] != wordSp2[i]) {
+                    isSimilar = false;
+                    break;
+                }
+            }
+        } else {
+            isSimilar = false;
+        }
+        if (isSimilar) {
+            document.getElementById('id').innerHTML = "Two strings are the same";
+        } else {
+
+            document.getElementById('id').innerHTML = "Two strings are not the same";
+        }
+    }
+</script>
+</body>
+</html>

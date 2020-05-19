@@ -1,0 +1,27 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+<script>
+    let arr = [];
+    let tempArr = [];
+    let _length = parseInt(prompt("input array length"));
+    let element, temp;
+    let count = 0;
+    for(let i = 0; i < _length; i++) {
+        element = prompt("Element " + i);
+        arr.push(element);
+        if (element == '-') {
+            tempArr.push('_');
+        } else {
+            tempArr.push(element);
+        }
+    }
+    document.write("Your array: " + arr + "<br>");
+    document.write("New Array: " + tempArr);
+</script>
+</body>
+</html>

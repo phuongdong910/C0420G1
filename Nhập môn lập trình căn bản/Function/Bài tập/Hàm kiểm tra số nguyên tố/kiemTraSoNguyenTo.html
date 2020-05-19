@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Kiểm tra số nguyên tố</title>
+</head>
+<body>
+ <script>
+     function isPrime(num) {
+         let result = true;
+         for (let i =2; i < num; i++){
+             if ((num % i) === 0 ){
+                 result = false;
+                 break;
+             }
+         }
+         return result;
+     }
+     let count = 3;
+     let isPrimeNumber;
+     let result = "2"; // base case
+     while (count < 10000) {
+         isPrimeNumber = isPrime(count);
+         if (isPrimeNumber) {
+             result += ", " + count;
+         }
+         count++;
+     }
+     console.log(result);
+     document.write(result);
+
+ </script>
+</body>
+</html>

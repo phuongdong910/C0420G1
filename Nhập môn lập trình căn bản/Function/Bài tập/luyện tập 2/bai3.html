@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Tính giai thừa</title>
+</head>
+<body>
+
+<script>
+let songuyen = parseInt(prompt("Nhập số nguyên: "));
+function tinhGiaithua(num) {
+    if ( num == 0){
+        return 1;
+    }
+    return num * tinhGiaithua(num -1);
+}
+alert("Giai thừa của " + songuyen +  " là " + tinhGiaithua(songuyen));
+
+</script>
+</body>
+</html>

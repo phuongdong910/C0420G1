@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Tìm số nguyên nhỏ nhất</title>
+</head>
+<body>
+<script>
+    let a = parseInt(prompt("Nhập vào a"));
+    let b = parseInt(prompt("Nhập vào b"));
+    let c = parseInt(prompt("Nhập vào c"));
+
+    function timSoMin(a,b,c) {
+        let min = a;
+        if ( b < min)
+            min = b;
+        if ( c < min)
+            min = c;
+        return min
+    }
+    alert("Giá trị nhỏ nhất là"  + timSoMin(a,b,c));
+</script>
+
+</body>
+</html>

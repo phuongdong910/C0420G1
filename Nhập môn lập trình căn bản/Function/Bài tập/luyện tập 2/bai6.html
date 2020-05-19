@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Kiểm tra số có phải số nguyên dương không</title>
+</head>
+<body>
+<script>
+    let num = parseInt(prompt("Nhập  số vào "));
+
+    function laSoNguyenDuong(num) {
+        if(num<0){
+            return false;
+        }
+        else{
+            return true;
+        }
+    }
+
+    if(laSoNguyenDuong(num)){
+        alert("Đây là số nguyên dương");
+    }
+    else
+        alert("Đây là số nguyên âm");
+
+
+</script>
+</body>
+</html>

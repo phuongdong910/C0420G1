@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Kiểm tra kí tự có phải dạng số không</title>
+</head>
+<body>
+<script>
+let char = prompt("Nhập vào một chuỗi ký tự");
+
+function laSo(str) {
+    let num = parseFloat(str);
+    if (isNaN(num)){
+        return false;
+    }
+    return true;
+}
+if(laSo(char)){
+    alert(" True ")
+}
+else {
+    alert(" False ")
+}
+
+</script>
+</body>
+</html>

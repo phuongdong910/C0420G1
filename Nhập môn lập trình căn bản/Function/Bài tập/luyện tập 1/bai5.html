@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Trả tên chùm sao cho ngôi sao nhập vào</title>
+</head>
+<body>
+<script>
+    bayNgoiSao = ["Polaris", "Aldebaran", "Deneb", "Vega", "Altair", "Dubhe", "Regulus"];
+    bayChomSao = ["Ursa Minor", "Tarurus", "Cygnus", "Lyra", "Aquila", "Ursa Major", "Leo"];
+    let Saocuaminh = prompt(" Nhập tên ngôi sao ");
+    let result = timNgoiSao(Saocuaminh);
+
+
+    function timNgoiSao(ngoiSao) {
+        let index = bayNgoiSao.indexOf(ngoiSao);
+        if ( index == -1){
+            return " Không tìm thấy ";
+        }
+        return bayChomSao[index];
+    }
+    alert(result);
+</script>
+</body>
+</html>

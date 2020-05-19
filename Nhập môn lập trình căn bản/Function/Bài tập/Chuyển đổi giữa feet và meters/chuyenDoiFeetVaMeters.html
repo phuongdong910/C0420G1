@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Chuyển đổi giữa feet và meters </title>
+</head>
+<body>
+<label for="feet">Feet</label>
+<input type="text" id="feet" min="0" step="0.001" oninput="converse(1)"><br><br>
+<label for="meter">Meter</label>
+<input type="text" id="meter" min="0" step="0.001" oninput="converse(2)">
+<script>
+    let feet = document.getElementById('feet');
+    let meter = document.getElementById('meter');
+    function converse(type) {
+        console.log(type);
+        switch(type) {
+            case 1: return feetToMeter(feet.value);
+            case 2: return meterToFeet(meter.value);
+        }
+    }
+    function feetToMeter(feet) {
+        let temp = 0.305 * parseFloat(feet);
+        console.log(temp);
+        // document.getElementById('meter').innerHTML = temp;
+        meter.value = temp;
+    }
+    function meterToFeet(meter) {
+        let temp = 3.279 * parseFloat(meter);
+        // document.getElementById('feet').innerHTML = temp;
+        feet.value = temp;
+
+    }
+</script>
+</body>
+</html>

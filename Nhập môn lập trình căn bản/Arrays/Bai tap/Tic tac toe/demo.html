@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Tic tac toe</title>
+</head>
+<body>
+<h3>Caro Game Simple</h3>
+<p id="carogame"/>
+<input type="button" value="Player1" onclick="play1()">
+<input type="button" value="Player2" onclick="play2()">
+<script>
+    let data =""
+    let board=[];
+    for (let i=0;i<10;i++){
+        board[i]=new Array();
+        for (let j=0;j<20;j++){
+            board[i][j]=".";
+        }
+    }
+    //////////////////bỏ dấy phẩy của bảng
+    for (let i = 0; i < 10; i++) {
+        data += "<br/>";
+        for (let j = 0; j < 20; j++) {
+            data += board[i][j] + "&nbsp;&nbsp;";
+        }
+    }
+    //////////////////In ra bàn cò caro
+    data += "<br/><br/><input type='button' value='Play1' onclick='play1()'>" +
+        "<input type='button' value='Play2' onclick='play2()'>"
+    document.getElementById("carogame").innerHTML=data;
+
+    //////////Hàm đánh dấu X của Player 1
+
+        function play1() {
+            let data="";
+            let x= parseInt(prompt("Enter Position X of Player1"));
+            let y= parseInt(prompt("Enter Position Y of Player1"));
+            board[x][y]="X";
+            let i=0;
+            let j=0;
+            for (i = 0; i < 10; i++) {
+                data += "<br/>";
+                for (j = 0; j < 20; j++) {
+                    data += board[i][j] + "&nbsp;&nbsp;";
+                }
+            }
+            data += "<br/><br/><input type='button' value='Play1' onclick='play1()'>" +
+                "<input type='button' value='Play2' onclick='play2()'>"
+            document.getElementById("carogame").innerHTML=data;
+
+            //Kiểm tra chiến thắng player 1
+            for (i = 0; i < 10; i++) {
+                for (j = 0; j < 20; j++) {
+                    let row=board[i][j] == "X" && board[i][j + 1] == "X" && board[i][j + 2] == "X";
+                    let colum=board[i][j] == "X" && board[i+1][j] == "X" && board[i+2][j] == "X";
+                    let victory=row||colum;
+                    if (victory) {
+                        document.getElementById("carogame").innerHTML=data+"</br>Player1 là người chiến thắng";
+                    }
+                }
+            }
+        }
+
+
+
+    //////////Hàm đánh dấu X của Player 2
+
+        function play2() {
+            let data="";
+            let x= parseInt(prompt("Enter Position X of Player2"));
+            let y= parseInt(prompt("Enter Position Yof Player2"));
+            board[x][y]="O";
+            let i=0;
+            let j=0;
+            for (i = 0; i < 10; i++) {
+                data += "<br/>";
+                for (j = 0; j < 20; j++) {
+                    data += board[i][j] + "&nbsp;&nbsp;";
+                }
+            }
+            data += "<br/><br/><input type='button' value='Play1' onclick='play1()'>" +
+                "<input type='button' value='Play2' onclick='play2()'>"
+            document.getElementById("carogame").innerHTML=data;
+
+            //Kiểm tra chiến thắng player 2
+            for (i = 0; i < 10; i++) {
+                for (j = 0; j < 20; j++) {
+                    let row=board[i][j] == "O" && board[i][j + 1] == "O" && board[i][j + 2] == "O";
+                    let colum=board[i][j] == "O" && board[i+1][j] == "O" && board[i+2][j] == "O";
+                    let victory=row||colum;
+                    if (victory) {
+                        document.getElementById("carogame").innerHTML=data+"</br> Player2 là người chiến thắng";
+                    }
+                }
+            }
+        }
+
+</script>
+</body>
+</html>
