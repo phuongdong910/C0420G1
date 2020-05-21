@@ -1,0 +1,65 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AdamEva</title>
+</head>
+<body>
+<script>
+    let adam = new Human("Adam", "Male", 60)
+    let eva = new Human("Eva", "Female", 50)
+    let apple = new Apple();
+
+    adam.say();
+    eva.say()
+    console.log("Before eating apple: Adam: " + adam.getWeight() + " kg, Eva: " + eva.getWeight() + " kg");
+    while(!apple.isEmpty()) {
+        adam.eat(apple);
+        eva.eat(apple);
+    }
+    console.log("After eating apple: Adam: " + adam.getWeight() + " kg, Eva: " + eva.getWeight() + " kg");
+    function Apple() {
+        this.weight = 10;
+        this.getWeight = () => {
+            return this.weight;
+        };
+        this.decrease = () => {
+            this.weight--;
+        };
+        this.isEmpty = () => {
+            if (this.weight > 0) {
+                return false;
+            }
+            return true;
+        }
+
+    }
+    function Human(name, gender, weight) {
+        this.name = name;
+        this.gender = gender;
+        this.weight = weight;
+        this.getName = () => { return this.name}
+        this.getWeight = () => { return this.weight}
+        this.getGender = () => { return this.gender}
+        this.setName = (value) => { this.name = value;}
+        this.setWeight = (value) => { this.weight = value;}
+        this.setGender = (value) => { this.gender = value;}
+        this.say = () => {
+            return console.log("Hello, I am " + this.name);
+        };
+        this.eat = (apple) => {
+            if (!this.checkApple(apple)) {
+                console.log(this.name + " eating.");
+                this.weight++;
+                apple.decrease();
+            } else {
+                console.log("apple is empty.");
+            }
+        }
+        this.checkApple = (apple) => {
+            return apple.isEmpty();
+        };
+    }
+</script>
+</body>
+</html>

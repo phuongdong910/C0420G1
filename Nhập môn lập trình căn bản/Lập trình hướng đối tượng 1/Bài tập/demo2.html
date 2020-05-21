@@ -1,0 +1,230 @@
+<html lang="en">
+<head>
+    <style>
+        div {
+            border: 1px solid red;
+            height: 280px;
+            width: 800px ;
+            margin: 1px 10px 10px 40px;
+            padding: 1px 10px 10px 40px;
+        }
+        textarea {
+            /* border: 1px solid black; */
+            width: 400px;
+            height: 150px;
+        }
+    </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+<div>
+    <h4>Phone 1 - Nokia</h4>
+    <label for="phone1">Message</label>
+    <input type="text"  id="phone1" oninput="text(1)">
+    <input type="button" value="Send" onclick="sendMes(1)">
+    <input type="button" value="Status" onclick="checkStatus(1)">
+    <input type="button" value="Inbox" onclick="checkInbox(1)">
+    <input type="button" value="Outbox" onclick="checkOutbox(1)">
+    <input type="button" value="Turn On" onclick="turnMobileOn(1)">
+    <input type="button" value="Charge" onclick="chargeMobile(1)">
+    <textarea id="disp1" cols="30" rows="10"></textarea>
+    <p id="bat1"></p>
+</div>
+<div>
+    <h4>Phone 2 - Iphone X</h4>
+    <label for="phone2">Message</label>
+    <input type="text"  id="phone2" oninput="text(2)">
+    <input type="button" value="Send" onclick="sendMes(2)">
+    <input type="button" value="Status" onclick="checkStatus(2)">
+    <input type="button" value="Inbox" onclick="checkInbox(2)">
+    <input type="button" value="Outbox" onclick="checkOutbox(2)">
+    <input type="button" value="Turn On" onclick="turnMobileOn(2)">
+    <input type="button" value="Charge" onclick="chargeMobile(2)">
+    <textarea id="disp2" cols="30" rows="10"></textarea>
+    <p id="bat2"></p>
+</div>
+<script>
+    let mes1 = document.getElementById("phone1");
+    let mes2 = document.getElementById("phone2");
+    let disp1 = document.getElementById("disp1");
+    let disp2 = document.getElementById("disp2");
+    let bat1 = document.getElementById("bat1");
+    let nokia = new Mobile("Nokia");
+    let iphone = new Mobile("Iphone X");
+    let charging1, charging2;
+    let isFull1, isFull2;
+    function chargeMobile(num) {
+        if (num == 1) {
+            disp1.innerHTML = "Charging..."
+            isFull1 = nokia.charge();
+            bat1.innerHTML = nokia.battery + " %";
+            if (isFull1) {
+                disp1.innerHTML = "Full"
+                clearTimeout(charging1)
+            } else
+                charging1 = setTimeout(chargeMobile, 200, 1);
+        } else {
+            disp2.innerHTML = "Charging..."
+            isFull2 = iphone.charge();
+            bat2.innerHTML = iphone.battery + " %";
+            if (isFull2) {
+                disp2.innerHTML = "Full"
+                clearTimeout(charging2)
+            } else
+                charging2 = setTimeout(chargeMobile, 200, 2);
+        }
+    }
+    function turnMobileOn(num) {
+        if (num == 1) {
+            nokia.turnOn();
+            bat1.innerHTML = nokia.battery + " %";
+            checkStatus(1);
+        } else {
+            iphone.turnOn();
+            bat2.innerHTML = iphone.battery + " %";
+            checkStatus(2);
+        }
+    }
+    function checkInbox(num) {
+        if (num == 1) {
+            let inboxes = nokia.showInbox();
+            for(let i = 0; i < inboxes.length; i++) {
+                disp1.innerHTML += inboxes[i] + "\r\n";
+            }
+            bat1.innerHTML = nokia.battery + " %";
+        } else {
+            let inboxes = iphone.showInbox();
+            for(let i = 0; i < inboxes.length; i++) {
+                disp2.innerHTML += inboxes[i] + "\r\n";
+            }
+            bat2.innerHTML = iphone.battery + " %";
+        }
+    }
+    function checkOutbox(num) {
+        if (num == 1) {
+            let outBoxes = nokia.showOutbox();
+            for(let i = 0; i < outBoxes.length; i++) {
+                disp1.innerHTML += outBoxes[i] + "\r\n";
+            }
+            bat1.innerHTML = nokia.battery + " %";
+        } else {
+            let outBoxes = iphone.showOutbox();
+            for(let i = 0; i < outBoxes.length; i++) {
+                disp2.innerHTML += outBoxes[i] + "\r\n";
+            }
+            bat2.innerHTML = iphone.battery + " %";
+        }
+    }
+    function checkStatus(num) {
+        if (num == 1) {
+            nokia.status();
+            bat1.innerHTML = nokia.battery + " %";
+        } else {
+            iphone.status();
+            bat2.innerHTML = iphone.battery + " %";
+        }
+    }
+    function text(num) {
+        if (num == 1) {
+            nokia.text(mes1.value);
+        } else {
+            iphone.text(mes2.value);
+        }
+    }
+    function sendMes(num) {
+        if (num == 1) {
+            mes1.value = "";
+            nokia.send(iphone);
+            disp2.innerHTML += iphone.receive() + "\r\n";
+        } else {
+            mes2.value = "";
+            iphone.send(nokia);
+            disp1.innerHTML += nokia.receive() + "\r\n";
+        }
+        bat2.innerHTML = iphone.battery + " %";
+        bat1.innerHTML = nokia.battery + " %";
+    }
+
+    function Mobile (name) {
+        this.name = name;
+        this.battery = 7;
+        this.isOn = false;
+        this.typingMessage = "";
+        this.receivedMessage = [];
+        this.sentMessage = [];
+        this.transferMessage = "";
+        this.turnOn = function () {
+            if (this.battery <= 0)
+                alert(this.name + " - Your phone is out of battery.");
+            else {
+                this.isOn = true;
+            }
+        }
+        this.turnOff = () => this.isOn = false;
+        this.status = () => alert((this.isOn ? "Your phone is turning on." : "Your phone is turning off."));
+        this.consume = function () {
+            this.battery--;
+            if (this.battery == 5) {
+                alert(this.name + " - Your battery is low.");
+            } else if (this.battery == 0) {
+                alert(this.name + " - Your phone is out of battery.");
+                this.turnOff();
+            }
+        }
+        this.charge = function () {
+            this.battery += 1;
+            if (this.battery == 100) {
+                // this.Mobile = 100;
+                alert(this.name + " - Your battery is full.");
+                this.turnOn();
+                return true;
+            } else {
+                return false;
+            }
+        }
+        this.text = function (message) {
+            if (this.isOn)
+                this.typingMessage = message;
+        }
+        this.send = function(phone) {
+            if (this.isOn) {
+                this.sentMessage.push(this.typingMessage + " - to " + phone.name);
+                phone.transferMessage = this.typingMessage + "- from " + this.name;
+                this.typingMessage = "";
+                this.consume();
+            } else {
+                this.status();
+            }
+        }
+        this.receive = function () {
+            if (this.isOn) {
+                let temp = this.transferMessage;
+                this.receivedMessage.push(this.transferMessage);
+                this.transferMessage = "";
+                this.consume();
+                return temp;
+            }
+            this.status();
+        }
+        this.showInbox = function () {
+            if (this.isOn) {
+                this.consume();
+                return this.receivedMessage;
+            }
+            this.status();
+            return [];
+        }
+        this.showOutbox = function () {
+            if (this.isOn) {
+                this.consume();
+                return this.sentMessage;
+            }
+            this.status();
+            return [];
+        }
+    }
+</script>
+</body>
+</html>

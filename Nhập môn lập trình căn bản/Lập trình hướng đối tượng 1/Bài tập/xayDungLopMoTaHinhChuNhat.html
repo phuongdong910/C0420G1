@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Xây dựng lớp mô tả hình chữ nhật</title>
+</head>
+<body>
+<canvas id="myCanvas" style="border: 1px; solid-color: #b0353a " width="400px" height="400px"></canvas>
+
+<script>
+    let Regtangle = function (width, height) {
+        this.width = width;
+        this.height = height;
+
+        this.getWidth = function () {
+            return this.width;
+        }
+        this.getHeight = function () {
+            return this.height;
+        }
+
+        this.setWidth = function () {
+            this.width = width;
+        }
+        this.setHeight = function () {
+            this.height = height;
+        }
+        this.area = function () {
+            return this.width*this.height;
+        }
+        this.perimeter = function () {
+            return 2*(this.width+this.height);
+        }
+
+        this.drawRegtangle = function () {
+            let cv = document.getElementById("myCanvas");
+            let ctx = cv.getContext("2d");
+            ctx.beginPath();
+            ctx.rect(50,50,this.width,this.height);
+            ctx.stroke();
+        }
+    }
+    let regtangle = new Regtangle(200,100);
+    regtangle.drawRegtangle();
+    regtangle.setWidth(150);
+    regtangle.setHeight(75);
+    alert(regtangle.area());
+    alert(regtangle.perimeter());
+</script>
+</body>
+</html>

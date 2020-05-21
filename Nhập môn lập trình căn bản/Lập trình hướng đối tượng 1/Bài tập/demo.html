@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>[Bài tập] Xây dựng lớp mô tả điện thoại</title>
+</head>
+<body>
+<script>
+    let Mobile = function(batteryStatus,messageDrafting,messageInbox,messageSent) {
+        this.batteryStatus = batteryStatus;
+        this.messageDrafting = messageDrafting;
+        this.messageInbox = messageInbox;
+        this.messageSent = messageSent;
+
+        this.getBatteryStatus = function() {
+            return this.batteryStatus;
+        }
+
+        this.getMessageDrafting = function() {
+            return this.messageDrafting;
+        }
+
+        this.getMessageInbox = function() {
+            return this.messageInbox;
+        }
+
+        this.getMessageSent = function() {
+            return this.messageSent;
+        }
+
+        this.setBatteryStatus = function() {
+            this.batteryStatus = batteryStatus;
+        }
+
+        this.setMessageDrafting = function() {
+            this.messageDrafting = messageDrafting;
+        }
+
+        this.setMessageInbox = function() {
+            this.messageInbox = messageInbox;
+        }
+
+        this.setMessageSent = function() {
+            this.messageSent = messageSent;
+        }
+
+        this.checkOnOffMobile = function(mobileOnOff) {
+            this.batteryStatus--;
+            if ((this.batteryStatus>=1)&&(mobileOnOff=='ON')) { return true;}
+            else {return false;}
+        }
+        this.turnOnOffMobile = function(mobileOnOff) {
+            this.batteryStatus--;
+            this.mobileOnOff = mobileOnOff;
+        }
+
+        this.chargeMobile = function(batteryStatus) {
+            this.batteryStatus = batteryStatus;
+        }
+
+        this.draftingMessage = function(messageDrafting) {
+            this.batteryStatus--;
+            this.messageDrafting = messageDrafting;
+        }
+
+        this.reciveMessage = function(messageInbox) {
+            this.batteryStatus--;
+            this.messageInbox = messageInbox;
+        }
+
+        this.sendMessage = function(mobile,messageSent) {
+            this.batteryStatus--;
+            mobile.messageInbox = messageSent;
+            this.messageSent = messageSent;
+        }
+
+        this.viewInboxMessage = function() {
+            this.batteryStatus--;
+            alert(this.messageInbox);
+        }
+
+        this.viewSentMessage = function() {
+            this.batteryStatus--;
+            alert(this.messageSent);
+        }
+    }
+
+    let nokia = new Mobile(10,'','','');
+    let iphone = new Mobile(10,'','','');
+    let samsung = new Mobile(10,'','','');
+    nokia.draftingMessage('Hello samsung');
+    nokia.sendMessage(samsung,nokia.getMessageDrafting());
+    samsung.viewInboxMessage();
+    nokia.draftingMessage('Hello iphone');
+    nokia.sendMessage(iphone,nokia.getMessageDrafting());
+    iphone.viewInboxMessage();
+</script>
+</body>
+</html>

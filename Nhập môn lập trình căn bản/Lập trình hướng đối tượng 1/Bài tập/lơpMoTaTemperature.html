@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Xây dựng lớp mô tả Temperature</title>
+</head>
+<body>
+<script>
+    let Temperature = function (Cel) {
+        this.Cel = Cel;
+        this.Temperature = function () {
+            return this.Cel;
+        }
+
+        this.setTemperature = function (Cel) {
+            this.setCel = Cel;
+        }
+        this.convertFahrenheit = function () {
+            return this.Cel * 1.8000 + 32.0000;
+        }
+        this.convertKenvin = function () {
+            return this.Cel + 273.1500;
+        }
+    }
+    let temperature = new Temperature(37);
+    temperature.setTemperature(45);
+    alert(temperature.convertFahrenheit());
+    alert(temperature.convertKenvin());
+
+</script>
+</body>
+</html>
